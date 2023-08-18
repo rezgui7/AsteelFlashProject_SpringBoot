@@ -13,22 +13,19 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Sous_projets implements Serializable {
+public class EquipeMember implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idSousProjet;
+    private long idMember;
+    private String prenom;
     private String state;
 
-    @Enumerated (EnumType.STRING)
-    private SousProjetType sousProjetType;
-
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
-    Projets projets;
-
-    @JsonIgnore
-    @ManyToMany(mappedBy = "sous_projets")
+    @ManyToMany(cascade = CascadeType.REMOVE,mappedBy = "equipeMembers")
     List<Equipe> equipes;
+
+
+
 
 
 }
