@@ -55,9 +55,14 @@ public class SousProjetService {
     }
 
     public void AssignTeam(Long idSousProjet, Long idEquipe ) {
+        int x;
         Equipe equipe = equipeRepository.findById(idEquipe).get();
         Sous_projets sp= sousProjetRepository.findById(idSousProjet).get();
         equipe.getSous_projets().add( sp);
+        x=equipe.getNpp() ;
+        equipe.setNpp(x+1);
+        System.out.println("Utilisateur not found with ID: " + x);
+
         sp.setState("Assigned");
         equipeRepository.save(equipe);
     }
@@ -65,5 +70,6 @@ public class SousProjetService {
     public List<Sous_projets> getSousProjectsByProjectId(Long projectId) {
         return sousProjetRepository.findByProjets_Id(projectId);
     }
+    public List<Sous_projets> displaySPwithoutTeam(){ return (List<Sous_projets>) sousProjetRepository.findPWithoutTeams();}
 
 }

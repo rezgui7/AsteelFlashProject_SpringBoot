@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class ProjetService {
@@ -28,4 +30,27 @@ public class ProjetService {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public float progressPourcentage(){
+        float sum=0;
+        float result=0;
+        List<Projets> projets= (List<Projets>) projetsRepository.findAll();
+        for (Projets p :projets) {
+
+            sum+=p.getProgress();
+        }
+        result=sum/projets.size();
+        return result;
+    }
+
+    public float mean_Lead_Time(){
+        float sum=0;
+        float result=0;
+        List<Projets> projets= (List<Projets>) projetsRepository.findAll();
+        for (Projets p :projets) {
+
+            sum+=p.getLead_time();
+        }
+        result=sum/projets.size();
+        return result;
+    }
 }

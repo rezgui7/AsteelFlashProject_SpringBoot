@@ -1,5 +1,6 @@
 package com.example.asteelflash.restController;
 
+import com.example.asteelflash.entities.Equipe;
 import com.example.asteelflash.entities.Projets;
 import com.example.asteelflash.entities.Sous_projets;
 import com.example.asteelflash.services.SousProjetService;
@@ -44,5 +45,8 @@ public class SousProjetsController {
     }
     @GetMapping("/displaySousProjetsByProjetID/{idProjets}")
     public List<Sous_projets> displaySousProjetsWithProjetID(@PathVariable("idProjets") Long idProjets){return sousProjetService.getSousProjectsByProjectId(idProjets);}
+
+    @GetMapping("/displaySPwithoutTeam")
+    public List<Sous_projets> displaySPwithoutTeam(){ return (List<Sous_projets>) sousProjetService.displaySPwithoutTeam();}
 
 }

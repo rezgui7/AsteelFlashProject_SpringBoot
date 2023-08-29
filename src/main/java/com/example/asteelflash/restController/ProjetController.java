@@ -31,4 +31,11 @@ public class ProjetController {
 
     @DeleteMapping("/deleteProjets")
     public void deleteProjets(@RequestBody Projets ct){projetService.deleteProjets(ct);}
+
+    @GetMapping("/displayresult")
+    public float displayresult(){ return (float) projetService.progressPourcentage();}
+
+    @GetMapping("/displayresultLead")
+    public float displayresultLead(){ return (float) projetService.mean_Lead_Time();}
+
 }

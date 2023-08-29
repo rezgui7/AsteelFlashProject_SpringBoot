@@ -47,4 +47,10 @@ public class EquipeController {
         return ResponseEntity.ok("User unassigned from class successfully.");
     }
 
+    @GetMapping("/getMostHardWorking")
+    public Equipe getMostHardWorking(){ return equipeService.getMostHardWorking();}
+
+    @GetMapping("/displayEquipewithoutMember")
+    public List<Equipe> displayEquipewithoutMember(){ return (List<Equipe>) equipeService.displayEquipewithoutMember();}
+
 }

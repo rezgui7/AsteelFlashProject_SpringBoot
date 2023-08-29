@@ -29,10 +29,10 @@ public class Projets implements Serializable {
     private Date start_date;
     private Date end_date;
     private Date due_end_date;
-    private String progress;
-    private String target;
-    private String lead_time;
-    private String delay;
+    private float progress;
+    private float target;
+    private float lead_time;
+    private float delay;
 
 
     @Enumerated (EnumType.STRING)

@@ -16,4 +16,7 @@ public interface EquipeRepository extends CrudRepository<Equipe,Long> {
 
     @Query("SELECT em FROM EquipeMember em JOIN em.equipes e WHERE e.idEquipe = :equipeId")
     List<EquipeMember> findByEquipe_Id(Long equipeId);
+
+    @Query("SELECT e FROM Equipe e WHERE e.equipeMembers IS EMPTY")
+    List<Equipe> findTeamsWithoutMembers();
 }
