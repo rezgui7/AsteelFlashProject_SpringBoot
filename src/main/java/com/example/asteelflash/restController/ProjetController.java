@@ -29,8 +29,8 @@ public class ProjetController {
     public Projets modifieProjets(@RequestBody Projets ct){ return projetService.modifieProjets(ct); }
 
 
-    @DeleteMapping("/deleteProjets")
-    public void deleteProjets(@RequestBody Projets ct){projetService.deleteProjets(ct);}
+    @DeleteMapping("/deleteProjets/{idProjets}")
+    public void deleteProjets(@PathVariable("idProjets") long idProjets){projetService.deleteProjets(idProjets);}
 
     @GetMapping("/displayresult")
     public float displayresult(){ return (float) projetService.progressPourcentage();}

@@ -26,7 +26,7 @@ public class ProjetService {
 
     public Projets modifieProjets(Projets cl){ return projetsRepository.save(cl); }
 
-    public void deleteProjets(Projets cl){projetsRepository.delete(cl);}
+    public void deleteProjets(long cl){projetsRepository.deleteById(cl);}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
