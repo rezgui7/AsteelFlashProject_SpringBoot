@@ -4,6 +4,7 @@ import com.example.asteelflash.entities.Projets;
 import com.example.asteelflash.entities.ScheduleEntry;
 import com.example.asteelflash.services.ScheduleEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.TaskScheduler;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +17,9 @@ public class ScheduleEntryController {
     @Autowired
     ScheduleEntryService scheduleEntryService;
 
+
     @PostMapping("/addScheduleEntry")
-    public ScheduleEntry addScheduleEntry(@RequestBody ScheduleEntry ct){return scheduleEntryService.addScheduleEntry(ct);}
+    public ScheduleEntry addScheduleEntry(@RequestBody ScheduleEntry ct){return scheduleEntryService.addScheduleEntry2(ct);}
 
     @GetMapping("/displayScheduleEntry")
     public List<ScheduleEntry> displayScheduleEntry(){ return (List<ScheduleEntry>) scheduleEntryService.displayScheduleEntry();}
@@ -32,5 +34,7 @@ public class ScheduleEntryController {
 
     @DeleteMapping("/deleteScheduleEntry")
     public void deleteScheduleEntry(@RequestBody ScheduleEntry ct){scheduleEntryService.deleteScheduleEntry(ct);}
+
+
 
 }
